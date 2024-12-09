@@ -863,6 +863,7 @@ In a substitution cipher, you must remove any repeating letters from the keyword
 
         VBox table = new VBox();
 
+        long startTime = System.currentTimeMillis();
         tableView.setEditable(true);
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableView.setFixedCellSize(45);
@@ -967,10 +968,13 @@ In a substitution cipher, you must remove any repeating letters from the keyword
             return row;
         });
 
+        long endtime = System.currentTimeMillis();
+        long duration = (endtime-startTime);
         back_container.getChildren().add(back);
         table.getChildren().add(tableView);
         title_container.getChildren().add(title);
         main_container.getChildren().addAll(back_container, title_container, table);
+        System.out.println(duration + "ms");
         return main_container;
     }
 
